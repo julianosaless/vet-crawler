@@ -40,26 +40,34 @@ namespace VetDirectoryTool.Core.Service.Reporting.Template
         private void CreateHeader(CsvWriter csv)
         {
             csv.WriteField("Name");
-            csv.WriteField("Address1");
+            csv.WriteField("Address 1");
+            csv.WriteField("Address 2");
+            csv.WriteField("City");
+            csv.WriteField("Postal Code");
+            csv.WriteField("Latitude");
+            csv.WriteField("Longitude");
+            csv.WriteField("State Code");
+            csv.WriteField("Country Code");
+            csv.WriteField("Distance");
             csv.WriteField("Phone");
         }
 
         private async Task CreateBodyAsync(CsvWriter csv, List<ParserFileModel> parseFiles)
         {
-            var exportsData = (from parseFile in parseFiles
-                               select new
-                               {
-                                   parseFile.Name,
-                                   parseFile.Address,
-                                   parseFile.Phone,
-                                 
-                               });
 
-            foreach (var item in exportsData)
+            foreach (var item in parseFiles)
             {
                 await csv.NextRecordAsync();
                 csv.WriteField(item.Name);
-                csv.WriteField(item.Address);
+                csv.WriteField(item.Address1);
+                csv.WriteField(item.Address2);
+                csv.WriteField(item.City);
+                csv.WriteField(item.PostalCode);
+                csv.WriteField(item.Latitude);
+                csv.WriteField(item.Longitude);
+                csv.WriteField(item.StateCode);
+                csv.WriteField(item.CountryCode);
+                csv.WriteField(item.Distance);
                 csv.WriteField(item.Phone);
             }
         }
