@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 using VetDirectoryTool.Core.Parser.Model;
-using System.Text.RegularExpressions;
 
 namespace VetDirectoryTool.Core.Parser.Template
 {

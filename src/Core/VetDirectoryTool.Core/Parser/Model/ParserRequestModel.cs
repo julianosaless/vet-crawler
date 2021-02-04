@@ -2,11 +2,11 @@
 {
     public readonly struct ParserRequestModel
     {
+        public string Content { get; }
+
         public ParserRequestModel(string content)
         {
             Content = content;
         }
-
-        public string Content { get; }
     }
 }
