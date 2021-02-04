@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -17,9 +18,18 @@ namespace VetDirectoryTool.Core.Service.FileProvider
 
         public async Task<string> GetContentAsync()
         {
-            using WebClient client = new WebClient();
-            await client.DownloadFileTaskAsync(new Uri(Url), Output);
-            return "";
+            if (!File.Exists(Output))
+            {
+                using (var client = new WebClient())
+                {
+                    await client.DownloadFileTaskAsync(new Uri(Url), Output);
+                }
+            }
+
+            using (var reader = File.OpenText(Output))
+            {
+                return await reader.ReadToEndAsync();
+            }
         }
     }
 }

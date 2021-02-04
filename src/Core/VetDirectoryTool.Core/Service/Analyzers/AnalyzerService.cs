@@ -9,7 +9,7 @@ namespace VetDirectoryTool.Core.Service.Analyzers
     {
         public static PetMedsAnalyzerService CreateAnalyzer(string path)
         {
-            return new PetMedsAnalyzerService(new RemoteUrlProviderService(path, Path.GetTempPath()), new ReportingService(ReportingType.PetMedsTypeCsv));
+            return new PetMedsAnalyzerService(new RemoteUrlProviderService(path, $"{Path.GetTempPath()}/petmeds.html"), new ReportingService(ReportingType.PetMedsTypeCsv));
         }
     }
 }
