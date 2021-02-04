@@ -28,7 +28,8 @@ namespace VetDirectoryTool.Core.Service.FileProvider
 
             using (var reader = File.OpenText(Output))
             {
-                return await reader.ReadToEndAsync();
+                var content =  await reader.ReadToEndAsync();
+                return System.Web.HttpUtility.HtmlDecode(content);
             }
         }
     }
