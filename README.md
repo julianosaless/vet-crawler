@@ -18,6 +18,6 @@
 
  * dotnet-vd  --help
  * dotnet-vd 
- * dotnet-vd directory -o "C:\project-games"
+ * dotnet-vd directory -o "C:\folder"
 
 ***
