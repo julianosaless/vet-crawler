@@ -1,14 +1,13 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System;
+using System.IO;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using CsvHelper;
+using CsvHelper.Configuration;
 
 using VetDirectoryTool.Core.Parser.Model;
-using CsvHelper.Configuration;
-using System.Globalization;
-using System;
 
 namespace VetDirectoryTool.Core.Service.Reporting.Template
 {
