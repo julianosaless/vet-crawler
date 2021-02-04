@@ -1,0 +1,24 @@
+{
+  "name": "vetdirectorytool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "configure": "npm run restore&&npm run build",
+    "restore": "node ./build/tools-build.js restore",
+    "build": "node ./build/tools-build.js build",
+    "deploy": "npm run restore && npm run build && node ./build/tools-build.js deploy",
+    "install": "npm run deploy && npm run uninstall && node ./build/tools-build.js  install",
+    "uninstall": "node ./build/tools-build.js uninstall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianosaless/vet-crawler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianosaless/vet-crawler/issues"
+  },
+  "homepage": "https://github.com/julianosaless/vet-crawler#readme"
+}
