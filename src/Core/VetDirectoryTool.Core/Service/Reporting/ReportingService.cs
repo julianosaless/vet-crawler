@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using VetDirectoryTool.Core.Parser.Model;
+using VetDirectoryTool.Core.Service.Reporting.Template;
+
 namespace VetDirectoryTool.Core.Service.Reporting
 {
     public class ReportingService
@@ -12,11 +15,12 @@ namespace VetDirectoryTool.Core.Service.Reporting
 
         private readonly ReportingType ReportingType;
 
-        public async Task ExportAsync<T>(string path, List<T> result)
+        public async Task ExportAsync(string path, List<ParserFileModel> result)
         {
             switch (ReportingType)
             {
                 case ReportingType.PetMedsTypeCsv:
+                    await new CsvReportingService(path).ExportAsync(result);
                     break;
                 default:
                     break;
