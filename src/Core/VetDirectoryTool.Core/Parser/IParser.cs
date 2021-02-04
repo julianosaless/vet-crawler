@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using VetDirectoryTool.Core.Parser.Model;
 
 namespace VetDirectoryTool.Core.Parser

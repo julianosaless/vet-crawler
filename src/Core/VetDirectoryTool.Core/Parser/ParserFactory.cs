@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
+
+using VetDirectoryTool.Core.Parser.Model;
 using VetDirectoryTool.Core.Parser.Template;
 
 namespace VetDirectoryTool.Core.Parser
@@ -9,5 +12,11 @@ namespace VetDirectoryTool.Core.Parser
         {
             new PetMedsParserTemplate()
         };
+
+        public  ParserResponseModel Analyze(ParserRequestModel parserRequest)
+        {
+            var filesFounded = Parsers.SelectMany(x => x.Analyze(parserRequest)).ToList();
+            return new ParserResponseModel(filesFounded);
+        }
     }
 }

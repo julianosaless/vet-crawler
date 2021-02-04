@@ -4,13 +4,11 @@ namespace VetDirectoryTool.Core.Parser.Model
 {
     public readonly struct ParserResponseModel
     {
-        public string Source { get; }
-        public List<ParserFileModel> ParserFiles { get; }
+        public List<ParserFileModel> ParserFileModels { get; }
 
-        public ParserResponseModel(string source, List<ParserFileModel> parserFiles)
+        public ParserResponseModel(List<ParserFileModel> parserFileModels)
         {
-            Source = source;
-            ParserFiles = parserFiles;
+            ParserFileModels = parserFileModels;
         }
     }
 }
